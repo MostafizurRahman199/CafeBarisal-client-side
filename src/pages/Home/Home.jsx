@@ -5,6 +5,7 @@ import BistroBoss from '../../components/Home/Bistro_Boss/BistroBoss'
 import Menu from '../../components/Home/Menu/Menu'
 import Contact from '../../components/Home/Contact/Contact'
 import CardRecomends from '../../components/Home/CardRecomends/CardRecomends'
+import FromOurMenu from '../../components/Home/FromOurMenu/FromOurMenu'
 
 
 
@@ -21,6 +22,7 @@ const Home = () => {
        <Menu></Menu>
        <Contact></Contact>
        <CardRecomends></CardRecomends>
+       <FromOurMenu></FromOurMenu>
     </div>
   )
 }
