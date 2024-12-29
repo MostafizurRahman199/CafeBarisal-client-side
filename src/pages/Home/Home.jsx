@@ -1,6 +1,9 @@
 import React from 'react'
 import BannerNew from '../../components/Home/BannerNew'
 import CategorySwiper from '../../components/Home/CategorySwiper/CategorySwiper'
+import BistroBoss from '../../components/Home/Bistro_Boss/BistroBoss'
+import Menu from '../../components/Home/Menu/Menu'
+import Contact from '../../components/Home/Contact/Contact'
 
 const Home = () => {
   return (
@@ -10,6 +13,9 @@ const Home = () => {
        </div>
 
        <CategorySwiper></CategorySwiper>
+       <BistroBoss></BistroBoss>
+       <Menu></Menu>
+       <Contact></Contact>
     </div>
   )
 }

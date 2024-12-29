@@ -197,7 +197,7 @@ const Navbar = () => {
             <Link to="/" className="flex items-center  space-x-1">
              
              
-              <span className="navbar_logo_text text-3xl sm:text-3xl md:text-xl lg:text-3xl text-md font-bold bg-gradient-to-r from-white to-[#151515] bg-clip-text text-transparent truncate">
+              <span className="new_heading_font text-3xl sm:text-3xl md:text-xl lg:text-3xl text-md font-bold bg-gradient-to-r from-white to-[#151515] bg-clip-text text-transparent truncate">
               CafeBarisal
               </span>
             </Link>
