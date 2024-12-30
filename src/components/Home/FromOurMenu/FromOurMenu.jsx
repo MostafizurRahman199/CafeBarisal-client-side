@@ -1,8 +1,11 @@
 import React from "react";
 import featuredImage from "../../../../public/home/featured.jpg";
 import SectionHeading from "../../SectionHeading/SectionHeading";
+import useMenu from "../../../hooks/useMenu";
 
 const FromOurMenu = () => {
+  
+
   return (
     <div
       className="relative w-full mx-auto my-20 h-[848px] bg-cover bg-fixed bg-center"

@@ -214,9 +214,15 @@ const Navbar = () => {
           <Link to="/" className={getLinkStyle('/')} onClick={() => setActiveLink('/')}>
             <FaHome className="lg:inline-block mr-1" /> Home
           </Link>
+          
           <Link to="/menu" className={getLinkStyle('/menu')} onClick={() => setActiveLink('/menu')}>
-<MdMenuBook className="lg:inline-block mr-1" />
+            <MdMenuBook className="lg:inline-block mr-1" />
              Menu
+          </Link>
+
+          <Link to="/order" className={getLinkStyle('/order')} onClick={() => setActiveLink('/order')}>
+            <MdMenuBook className="lg:inline-block mr-1" />
+             Order Food
           </Link>
 
           <Link to="/all-post-volunteer" className={getLinkStyle('/all-post-volunteer')} onClick={() => setActiveLink('/all-post-volunteer')}>

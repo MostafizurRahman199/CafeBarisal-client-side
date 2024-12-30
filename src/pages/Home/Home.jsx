@@ -34,7 +34,7 @@ const Home = () => {
 
        <CategorySwiper></CategorySwiper>
        <BistroBoss></BistroBoss>
-       <Menu menuItems={menuItems}></Menu>
+       <Menu ></Menu>
        <Contact></Contact>
        <CardRecomends></CardRecomends>
        <FromOurMenu></FromOurMenu>
