@@ -13,6 +13,7 @@ import PrivateRoute from "./PrivateRoute";
 import UpdateProfile from "../pages/UpdateProfile";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home/Home";
+import MenuPage from "../pages/Menus/MenuPage";
 
 
 
@@ -32,6 +33,17 @@ const router = createBrowserRouter([
                             <title>CafeBarisal - Home</title>
                         </Helmet>
                         <Home></Home>
+                    </>
+                ),
+            },
+            {
+                path: "/menu",
+                element: (
+                    <>
+                        <Helmet>
+                            <title>CafeBarisal - Menu</title>
+                        </Helmet>
+                        <MenuPage></MenuPage>
                     </>
                 ),
             },

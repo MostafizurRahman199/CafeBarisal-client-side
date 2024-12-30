@@ -5,7 +5,7 @@ import SectionHeading from "../../SectionHeading/SectionHeading";
 const FromOurMenu = () => {
   return (
     <div
-      className="relative w-full mx-auto my-20 h-[848px] bg-cover bg-center"
+      className="relative w-full mx-auto my-20 h-[848px] bg-cover bg-fixed bg-center"
       style={{ backgroundImage: `url(${featuredImage})` }}
     >
       <div className="absolute z-0 inset-0 bg-black/50"></div>

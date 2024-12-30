@@ -1,19 +1,13 @@
 
-
 import React from "react";
-import SectionHeading from "../../SectionHeading/SectionHeading";
-import image1 from "../../../../public/menu/dessert-bg.jpeg"
-import image2 from "../../../../public/menu/pizza-bg.jpg"
-import image3 from "../../../../public/menu/salad-bg.jpg"
-import image4 from "../../../../public/menu/soup-bg.jpg"
 
-const Menu = ({menuItems}) => {
+
+const SharedMenu = ({menuItems}) => {
 
 
   return (
     <div className="w-full p-8 sm:w-10/12 md:p-0 mx-auto my-12">
-       <SectionHeading title1={"---Check it out---"} title2={"FROM OUR MENU"}></SectionHeading>
-   
+
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {menuItems?.map((item, index) => (
           <div
@@ -36,16 +30,12 @@ const Menu = ({menuItems}) => {
           </div>
         ))}
       </div>
-      <div className="text-center mt-8">
-        <button className="px-6 py-2 text-black rounded-2xl border-b-4 border-black">
-          View Full Menu
-        </button>
-      </div>
+     
     </div>
   );
 };
 
-export default Menu;
+export default SharedMenu;
 
 
 

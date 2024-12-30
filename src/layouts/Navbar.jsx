@@ -3,15 +3,10 @@ import React, { useEffect } from 'react'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 // import { useFirebaseAuth } from '../Auth/AuthProvider';
 import { FaHome,  FaUser, FaUserPlus, FaSignInAlt, } from 'react-icons/fa';
-
 import { MdAddBox } from 'react-icons/md';
 import { VscOpenPreview } from 'react-icons/vsc';
-
-
 import { Tooltip as ReactTooltip } from 'react-tooltip';
-
 import 'react-tooltip/dist/react-tooltip.css';
-
 import { FiSave } from "react-icons/fi";
 import { useFirebaseAuth } from '../hooks/useAuth';
 import { useDarkMode } from '../Context/DarkModeContext';
@@ -19,6 +14,7 @@ import { RiUserReceivedLine } from "react-icons/ri";
 import { FaRegSave } from "react-icons/fa";
 import humanityLogo from "../../public/humanity.png";
 import DarkModeToggle from '../components/Navbar/DarkModeToggle';
+import { MdMenuBook } from "react-icons/md";
 
 const Navbar = () => {
 
@@ -217,6 +213,10 @@ const Navbar = () => {
           
           <Link to="/" className={getLinkStyle('/')} onClick={() => setActiveLink('/')}>
             <FaHome className="lg:inline-block mr-1" /> Home
+          </Link>
+          <Link to="/menu" className={getLinkStyle('/menu')} onClick={() => setActiveLink('/menu')}>
+<MdMenuBook className="lg:inline-block mr-1" />
+             Menu
           </Link>
 
           <Link to="/all-post-volunteer" className={getLinkStyle('/all-post-volunteer')} onClick={() => setActiveLink('/all-post-volunteer')}>

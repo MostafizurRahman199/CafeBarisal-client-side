@@ -257,8 +257,8 @@ const Footer = () => {
 
   return (
     <div>
-      <footer className={ ` bg-[#111827] text-white  p-10 grid grid-cols-1 md:grid md:grid-cols-2 gap-6`}>
-        <div className="w-full  flex flex-col items-center justify-center gap-4">
+      <footer className={ `  text-white   grid grid-cols-1 md:grid md:grid-cols-2 `}>
+        <div className="w-full bg-[#1F2937]  flex flex-col items-center justify-center p-10 gap-4">
           <h3 className="text-2xl">Contact Us</h3>
           <p className="text-center">
             123 ABS Street, Uni 21, Bangladesh <br />
@@ -267,7 +267,7 @@ const Footer = () => {
             Sat - Sun: 10:00 - 23:00 <br />
           </p>
         </div>
-        <div className="w-full  flex flex-col items-center justify-center gap-4">
+        <div className="w-full bg-[#111827]  flex flex-col items-center justify-center gap-4 p-10">
           <h6 className="text-2xl">Follow Us</h6>
           <p>Join us on social media</p>
           <div className="grid grid-flow-col gap-4">

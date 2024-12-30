@@ -4,7 +4,7 @@ import chefService from "../../../../public/home/chef-service.jpg"; // Import th
 const BistroBoss = () => {
   return (
     <div
-      className="w-full md:w-10/12 h-[572px] bg-cover bg-center bg-no-repeat  md:my-24 mx-auto flex justify-center items-center  px-2  py-4 sm:p-8  md:p-24 "
+      className="bg-fixed w-full md:w-10/12 h-[572px] bg-cover bg-center bg-no-repeat  md:my-24 mx-auto flex justify-center items-center  px-2  py-4 sm:p-8  md:p-24 "
       style={{ backgroundImage: `url(${chefService})` }} // Set the background image dynamically
     >
       <div className="rounded-2xl p-4 md:p-8 h-10/12 md:h-[333.67px]   bg-white flex flex-col justify-center items-center gap-4">

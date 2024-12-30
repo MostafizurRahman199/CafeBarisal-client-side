@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "./Footer";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -13,6 +13,8 @@ import { useFirebaseAuth } from "../hooks/useAuth";
 
 const MainLayout = () => {
   const { user, loading } = useFirebaseAuth();
+ const {pathname} = useLocation();
+ console.log(pathname);
   return (
     <div className="font_poppins min-h-screen">
       <ToastContainer />
@@ -25,7 +27,7 @@ const MainLayout = () => {
         <>
     
           <Navbar />
-          <div className=" min-h-screen">
+            <div className={ `min-h-screen py-16}`}>
             <Outlet />
           </div>
           <Footer />
