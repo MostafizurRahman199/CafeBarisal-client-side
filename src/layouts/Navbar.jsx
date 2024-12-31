@@ -220,7 +220,7 @@ const Navbar = () => {
              Menu
           </Link>
 
-          <Link to="/order" className={getLinkStyle('/order')} onClick={() => setActiveLink('/order')}>
+          <Link to="/order/:category" className={getLinkStyle('/order/:category')} onClick={() => setActiveLink('/order/:category')}>
             <MdMenuBook className="lg:inline-block mr-1" />
              Order Food
           </Link>

@@ -8,7 +8,7 @@ const useMenu = () => {
   useEffect(() => {
     const fetchMenuData = async () => {
       try {
-        const result = await fetch("menu.json");
+        const result = await fetch("https://raw.githubusercontent.com/ProgrammingHero1/bistro-boss-client-menu-and-order/refs/heads/main/public/menu.json");
         if (!result.ok) {
           throw new Error("Failed to fetch menu data");
         }
@@ -23,6 +23,8 @@ const useMenu = () => {
 
     fetchMenuData();
   }, []);
+
+  // console.log(menuData);
 
   return { menuData, loading, error }; 
 };

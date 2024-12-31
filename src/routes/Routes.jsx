@@ -49,7 +49,7 @@ const router = createBrowserRouter([
                 ),
             },
             {
-                path: "/order",
+                path: "/order/:category",
                 element: (
                     <>
                         <Helmet>
