@@ -15,6 +15,7 @@ import { FaRegSave } from "react-icons/fa";
 import humanityLogo from "../../public/humanity.png";
 import DarkModeToggle from '../components/Navbar/DarkModeToggle';
 import { MdMenuBook } from "react-icons/md";
+import AddToCardBadge from '../components/Navbar/AddToCardBadge';
 
 const Navbar = () => {
 
@@ -224,10 +225,16 @@ const Navbar = () => {
             <MdMenuBook className="lg:inline-block mr-1" />
              Order Food
           </Link>
+          <Link to="/contact" className={getLinkStyle('/contact')} onClick={() => setActiveLink('/contact')}>
+            <MdMenuBook className="lg:inline-block mr-1" />
+             Contact
+          </Link>
 
           <Link to="/all-post-volunteer" className={getLinkStyle('/all-post-volunteer')} onClick={() => setActiveLink('/all-post-volunteer')}>
             <VscOpenPreview className="lg:inline-block mr-1"/> All Post Volunteer
           </Link>
+
+     
 
         
 
@@ -307,6 +314,8 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
+
+          <AddToCardBadge></AddToCardBadge>
 
           {
             !user && <>

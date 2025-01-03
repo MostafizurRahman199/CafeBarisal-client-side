@@ -15,6 +15,7 @@ import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home/Home";
 import MenuPage from "../pages/Menus/MenuPage";
 import Order from "../pages/Order/Order";
+import Contact from "../pages/Contact/Contact";
 
 
 
@@ -45,6 +46,17 @@ const router = createBrowserRouter([
                             <title>CafeBarisal - Menu</title>
                         </Helmet>
                         <MenuPage></MenuPage>
+                    </>
+                ),
+            },
+            {
+                path: "/contact",
+                element: (
+                    <>
+                        <Helmet>
+                            <title>CafeBarisal - Contact</title>
+                        </Helmet>
+                        <Contact></Contact>
                     </>
                 ),
             },

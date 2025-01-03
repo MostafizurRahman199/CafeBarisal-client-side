@@ -11,10 +11,11 @@ import { ThemeProvider } from "../Auth/ThemeContext";
 import ApiComponent from "../API/ApiComponent";
 import { useFirebaseAuth } from "../hooks/useAuth";
 
+
 const MainLayout = () => {
   const { user, loading } = useFirebaseAuth();
- const {pathname} = useLocation();
- console.log(pathname);
+  const { pathname } = useLocation();
+  console.log(pathname);
   return (
     <div className="font_poppins min-h-screen">
       <ToastContainer />
@@ -25,13 +26,20 @@ const MainLayout = () => {
         </div>
       ) : (
         <>
-    
-          <Navbar />
-            <div className={ `min-h-screen py-16}`}>
+          {pathname !== "/login" &&
+          pathname !== "/register" &&
+          pathname !== "/forgot-password" &&
+          pathname !== "/reset-password" ? (
+            <>
+              <Navbar />
+              <div className={`min-h-screen py-16}`}>
+                <Outlet />
+              </div>
+              <Footer />{" "}
+            </>
+          ) : (
             <Outlet />
-          </div>
-          <Footer />
-     
+          )}
         </>
       )}
     </div>

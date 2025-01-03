@@ -91,6 +91,7 @@ const AuthProvider = ({children}) => {
 
 
     // 1. ___________________________Register with email/password
+    //create user with email and password
 
     const registerUser = async (email, password, name, photoURL) => {
         try {
@@ -204,6 +205,7 @@ const AuthProvider = ({children}) => {
 
 
     // ___________________________Add useEffect to monitor auth state
+    // it call the outside api that's why it is in useEffect
 
     React.useEffect( () => {
         const unsubscribe = auth.onAuthStateChanged((currentUser) => {

@@ -13,6 +13,9 @@ import Swal from 'sweetalert2';
 import loginAnimation from "../../public/login.json";
 import Lottie from 'lottie-react';
 import { useFirebaseAuth } from '../hooks/useAuth';
+import authenticationImage from "../../public/others/authentication2.png";
+import CaptchaComponent from '../components/Capcha/CaptchaComponent';
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 
 
 const Login = () => {
@@ -20,6 +23,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const { loginUser, googleSignIn } = useFirebaseAuth();
+  const [isCaptchaValid, setIsCaptchaValid] = useState(false);
 
 
 
@@ -47,6 +51,11 @@ const Login = () => {
     if (lottieRef.current) {
       lottieRef.current.setSpeed(0.5); // Adjust speed (e.g., 0.5 for half speed)
     }
+  }, []);
+
+
+  useEffect(() => {
+    loadCaptchaEnginge(6);  // 6 characters captcha
   }, []);
 
 
@@ -95,7 +104,15 @@ const Login = () => {
 
       
     
-    
+    const handleCapcha = (e) => {
+     
+      if (validateCaptcha(e.target.value)) {
+        setIsCaptchaValid(true);
+      } else {
+        setIsCaptchaValid(false);
+        toast.error("Captch is not valid");
+      }
+    }
 
 
 
@@ -104,15 +121,19 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+
+
+      // ______________validate captcha
+
+       const userCaptchaValue = document.getElementById('user_captcha_input').value;
+  
      
+    //  ________call login function in AuthProvider
+    
       const result =  await loginUser(email, password);
      
 
       // console.log(result.email)
-   
-
-
-
       Swal.fire({
         position: "top-center",
         icon: "success",
@@ -126,6 +147,10 @@ const Login = () => {
 
     }
   };
+   
+
+
+
 
   const handleGoogleSignIn = async () => {
     try {
@@ -157,7 +182,7 @@ const Login = () => {
   };
 
   return (
-    <div className="md:w-10/12 mx-auto flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
+    <div className="md:w-10/12 min-h-screen mx-auto flex items-center justify-center  py-24 px-4 sm:px-6 lg:px-8">
       <div className=" w-full flex flex-col md:flex md:flex-row justify-center items-center gap-4  space-y-4 sm:shadow-2xl p-8  rounded-2xl bg-gray-100" data-aos="zoom-in">
        <div className='flex-1'>
        <div>
@@ -171,7 +196,7 @@ const Login = () => {
               <input
                 type="email"
                 required
-                className="appearance-none  relative block w-full px-3 py-4 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-3xl focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
+                className="appearance-none  relative block w-full px-3 py-4 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-xl focus:outline-none focus:ring-black focus:border-black focus:z-10 sm:text-sm"
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -181,7 +206,7 @@ const Login = () => {
               <input
                 type={showPassword ? "text" : "password"}
                 required
-                className="appearance-none  relative block w-full px-3 py-4 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-3xl focus:outline-none focus:ring-black focus:border-black sm:text-sm pr-10"
+                className="appearance-none  relative block w-full px-3 py-4 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-xl focus:outline-none focus:ring-black focus:border-black sm:text-sm pr-10"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -200,26 +225,44 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between">
-            <div className="text-sm">
-              <button
-                onClick={handleForgotPassword}
-                className="font-medium text-black hover:text-[#41B3A2]"
-              >
-                Forgot your password?
-              </button>
+         
+
+          <div className="mt-4 ">
+            <div className="flex items-center justify-center py-2 rounded-xl border-2 bg-white">
+              <LoadCanvasTemplate />
             </div>
-          </div>
+            <div className="mt-2">
+              <input
+                onBlur={handleCapcha}
+                type="text"
+                id="user_captcha_input"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-black focus:border-black sm:text-sm"
+                placeholder="Enter captcha"
+              />
+            </div>
+        </div>
 
           <div>
             <button
+             disabled={!isCaptchaValid}
               type="submit"
-              className="group relative w-full flex justify-center  border border-transparent text-sm  bg-[#41B3A2] hover:bg-[#0D7C66] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black px-8 py-3 rounded-3xl text-white font-bold transition-transform hover:scale-105 shadow-2xl"
+              className={`${isCaptchaValid === false?  "bg-gray-400" : "bg-[#fddaa9] hover:bg-[#bb8506]"}  group relative w-full flex justify-center  border border-transparent text-sm   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black px-8 py-3 rounded-xl text-white font-bold transition-transform hover:scale-105 shadow-2xl`}
             >
               Login
             </button>
           </div>
         </form>
+
+        <div className="flex items-center justify-between my-2">
+            <div className="text-sm">
+              <button
+                onClick={handleForgotPassword}
+                className="font-medium text-black hover:text-[#fddaa9]"
+              >
+                Forgot your password?
+              </button>
+            </div>
+          </div>
 
         <div className="mt-6 flex items-center">
           <div className="flex-grow border-t border-gray-300"></div>
@@ -239,17 +282,20 @@ const Login = () => {
 
         <p className="mt-2 text-center text-sm text-gray-600">
           Don't have an account?{' '}
-          <Link to="/register" className="font-medium text-black hover:text-[#41B3A2]">
+          <Link to="/register" className="font-medium text-black hover:text-[#fddaa9]">
             Register here
           </Link>
         </p>
        </div>
 
-       <div className='flex-1'>
+       {/* <div className='flex-1'>
         <Lottie  lottieRef={lottieRef}
       animationData={loginAnimation}
       style={style}
       loop={true} />
+      </div> */}
+       <div className='flex-1'>
+          <img src={authenticationImage} alt="" />
       </div>
       </div>
 

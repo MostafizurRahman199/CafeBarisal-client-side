@@ -95,7 +95,7 @@ const Register = () => {
     };
 
     return (
-        <div className="md:w-10/12 mx-auto flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
+        <div className="md:w-10/12 min-screen-h  mx-auto flex items-center justify-center  py-24 px-4 sm:px-6 lg:px-8">
             <div className="w-full flex flex-col md:flex md:flex-row justify-center items-center gap-4 sm:shadow-2xl  space-y-8  p-8  rounded-2xl bg-gray-100" data-aos="fade-up">
               <div className='flex-1 ' >
               <div>
