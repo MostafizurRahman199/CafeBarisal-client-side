@@ -14,7 +14,7 @@ const Menu = () => {
   console.log(menuData);
 
   const data = menuData?.slice(0,6);
-  const popularMenu = menuData.filter((item)=>item.category === "popular");
+  const popularMenu = menuData?.filter((item)=>item.category === "popular");
 
   return (
     <div className="w-full p-8 sm:w-10/12 md:p-0 mx-auto my-12">

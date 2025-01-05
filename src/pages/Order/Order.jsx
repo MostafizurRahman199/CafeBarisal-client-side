@@ -12,7 +12,7 @@
 // const tabs = ["Salad", "Pizza", "Soups", "Desserts", "Drinks"];
 
 // const Order = () => {
-//   const { getMenuData } = ApiComponent();
+//   const { getMenuData? } = ApiComponent();
 //   const { category } = useParams();
 //   // console.log(category)
 
@@ -20,9 +20,9 @@
 //   const [activeTab, setActiveTab] = useState(category || "Salad");
 
 //   // Fetch menu data using TanStack Query
-//   const { data: menuData = [], isLoading, isError } = useQuery({
-//     queryKey: ["menuData"],
-//     queryFn: getMenuData,
+//   const { data: menuData? = [], isLoading, isError } = useQuery({
+//     queryKey: ["menuData?"],
+//     queryFn: getMenuData?,
 //   });
 
 //   // Update active tab only if `category` changes
@@ -42,11 +42,11 @@
 
 //   // Filtered categories
 //   const categorizedData = {
-//     Salad: menuData.filter((item) => item.category.toLowerCase() === "salad"),
-//     Pizza: menuData.filter((item) => item.category.toLowerCase() === "pizza"),
-//     Soups: menuData.filter((item) => item.category.toLowerCase() === "soup"),
-//     Desserts: menuData.filter((item) => item.category.toLowerCase() === "dessert"),
-//     Drinks: menuData.filter((item) => item.category.toLowerCase() === "drinks"),
+//     Salad: menuData?.filter((item) => item.category.toLowerCase() === "salad"),
+//     Pizza: menuData?.filter((item) => item.category.toLowerCase() === "pizza"),
+//     Soups: menuData?.filter((item) => item.category.toLowerCase() === "soup"),
+//     Desserts: menuData?.filter((item) => item.category.toLowerCase() === "dessert"),
+//     Drinks: menuData?.filter((item) => item.category.toLowerCase() === "drinks"),
 //   };
 
 //   // Handle loading and error states
@@ -111,22 +111,23 @@ import { useQuery } from "@tanstack/react-query";
 import Loading from "../../components/Loading/Loading";
 import ErrorPage from "../ErrorPage";
 import Pagination from "../../components/Pagination/Pagination";
+import useMenu from "../../hooks/useMenu";
+
 
 // Tabs array
 const tabs = ["Salad", "Pizza", "Soups", "Desserts", "Drinks"];
 
 const Order = () => {
-  const { getMenuData } = ApiComponent();
+
   const { category } = useParams();
   const [activeTab, setActiveTab] = useState(category || "Salad");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
-  // Fetch menu data using TanStack Query
-  const { data: menuData = [], isLoading, isError } = useQuery({
-    queryKey: ["menuData"],
-    queryFn: getMenuData,
-  });
+//________________fetch menu data using custom hook
+
+  const  {menuData, isLoading, isError, error} = useMenu();
+
 
   // Update active tab only if `category` changes
   useEffect(() => {
@@ -139,15 +140,15 @@ const Order = () => {
 
   // Filtered categories
   const categorizedData = {
-    Salad: menuData.filter((item) => item.category.toLowerCase() === "salad"),
-    Pizza: menuData.filter((item) => item.category.toLowerCase() === "pizza"),
-    Soups: menuData.filter((item) => item.category.toLowerCase() === "soup"),
-    Desserts: menuData.filter((item) => item.category.toLowerCase() === "dessert"),
-    Drinks: menuData.filter((item) => item.category.toLowerCase() === "drinks"),
+    Salad: menuData?.filter((item) => item.category.toLowerCase() === "salad"),
+    Pizza: menuData?.filter((item) => item.category.toLowerCase() === "pizza"),
+    Soups: menuData?.filter((item) => item.category.toLowerCase() === "soup"),
+    Desserts: menuData?.filter((item) => item.category.toLowerCase() === "dessert"),
+    Drinks: menuData?.filter((item) => item.category.toLowerCase() === "drinks"),
   };
 
   // Handle loading and error states
-  if (isLoading) return <Loading />;
+  if (isLoading) return <Loading height="screen" />;
   if (isError) return <ErrorPage />;
 
   // Dynamic component rendering

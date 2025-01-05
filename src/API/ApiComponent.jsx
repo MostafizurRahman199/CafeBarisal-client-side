@@ -332,15 +332,11 @@ const ApiComponent = () => {
   //   return response.data;
   // };
 
-
-
-
   // menu page
   const getMenuData = async () => {
     try {
       const response = await api.get(`/menu`);
       return handleResponse(response); // Simplified handling
-      
     } catch (error) {
       console.error("Error fetching volunteer requests:", error.message);
       throw new Error(
@@ -354,7 +350,32 @@ const ApiComponent = () => {
     try {
       const response = await api.get(`/reviews`);
       return handleResponse(response); // Simplified handling
-      
+    } catch (error) {
+      console.error("Error fetching volunteer requests:", error.message);
+      throw new Error(
+        error.response?.data?.message || "Failed to fetch requests"
+      );
+    }
+  };
+
+  // order card
+  const addToCart = async (cartItem) => {
+    try {
+      const response = await api.post("/cart", cartItem);
+      return response.data;
+      ata;
+    } catch (error) {
+      console.error("Error adding the item to the cart:", error.message);
+      throw new Error(
+        error.response?.data?.message || "Failed to add the item to the cart."
+      );
+    }
+  };
+
+  const getCart = async (email) => {
+    try {
+      const response = await api.get(`/cart/${email}`);
+      return handleResponse(response);
     } catch (error) {
       console.error("Error fetching volunteer requests:", error.message);
       throw new Error(
@@ -370,6 +391,9 @@ const ApiComponent = () => {
 
     getMenuData,
     getReviews,
+
+    addToCart,
+    getCart
   };
 };
 

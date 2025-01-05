@@ -1,5 +1,6 @@
 
-import { CiShoppingCart } from "react-icons/ci";
+import { FaCartShopping } from "react-icons/fa6";
+import useCart from "../../hooks/useCart";
 
 const CustomBadge = ({ count, children }) => {
   return (
@@ -14,12 +15,20 @@ const CustomBadge = ({ count, children }) => {
   );
 };
 
+
+
+
 const AddToCardBadge = () => {
+   
+// _______fetch cart data using custom hook
+
+const {data} = useCart();
+
   return (
     <div className="flex items-center gap-8">
-      <CustomBadge count={5}>
+      <CustomBadge count={data?.length}>
         <button className="p-2 bg-gray-200 rounded-full hover:bg-gray-300">
-          <CiShoppingCart className="text-xl text-black" />
+          <FaCartShopping  className="text-xl text-black" />
         </button>
       </CustomBadge>
     </div>

@@ -16,6 +16,9 @@ import Home from "../pages/Home/Home";
 import MenuPage from "../pages/Menus/MenuPage";
 import Order from "../pages/Order/Order";
 import Contact from "../pages/Contact/Contact";
+import Dashboard from "../layouts/Dashboard";
+import UserHome from "../pages/Dashboard/UserHome/UserHome";
+import MyCart from "../pages/Dashboard/MyCart";
 
 
 
@@ -83,19 +86,8 @@ const router = createBrowserRouter([
                     </>
                 ),
             },
-           {
-                path: "/volunteer-post-details/:id",
-                element: (
-                    <>
-                        <Helmet>
-                            <title>CafeBarisal - Volunteer Post Details</title>
-                        </Helmet>
-                        <PrivateRoute>
-                         {/* something */}
-                        </PrivateRoute>
-                    </>
-                ),
-            },
+          
+            
             {
                 path: "/ManageMyPostRequest",
                 element: (
@@ -170,6 +162,36 @@ const router = createBrowserRouter([
            
         ],
     },
+    {
+        path: "/dashboard",
+        element: <Dashboard />,
+        children: [
+          {
+            path: "user-home",
+            element: <UserHome></UserHome>, // Replace with your actual component, e.g., <UserHome />
+          },
+          {
+            path: "reservation",
+            element: <div>Reservation Page</div>, // Replace with your actual component, e.g., <Reservation />
+          },
+          {
+            path: "payment-history",
+            element: <div>Payment History Page</div>, // Replace with your actual component, e.g., <PaymentHistory />
+          },
+          {
+            path: "my-cart",
+            element: <MyCart></MyCart> // Replace with your actual component, e.g., <MyCart />
+          },
+          {
+            path: "add-review",
+            element: <div>Add Review Page</div>, // Replace with your actual component, e.g., <AddReview />
+          },
+          {
+            path: "my-booking",
+            element: <div>My Booking Page</div>, // Replace with your actual component, e.g., <MyBooking />
+          },
+        ],
+      },
     {
         path: "*",
         element: (

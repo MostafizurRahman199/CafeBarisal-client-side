@@ -7,32 +7,24 @@ import pizza from "../../../../public/menu/pizza-bg.jpg"
 import dessert from "../../../../public/menu/dessert-bg.jpeg"
 import soup from "../../../../public/menu/soup-bg.jpg"
 import { useDarkMode } from "../../../Context/DarkModeContext";
+import useMenu from "../../../hooks/useMenu";
+import Loading from "../../Loading/Loading";
+import ErrorPage from "../../../pages/ErrorPage";
 
 const CardRecomends = () => {
+
   const {darkMode} = useDarkMode();
-  const menuItems = [
-    {
-      name: "Caeser Salad",
-      description: "Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.",
-      image: pizza, // Replace with actual image URLs
-    },
-    {
-      name: "Caeser Salad",
-      description: "Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.",
-      image: dessert, // Replace with actual image URLs
-    },
-    {
-      name: "Caeser Salad",
-      description: "Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.",
-      image: soup, // Replace with actual image URLs
-    },
-  ];
+  const {menuData, isLoading, isError, error} = useMenu();
+  const offeredItems = menuData?.filter((item)=>item?.category === "offered");
+
+if(isLoading) return <Loading></Loading>
+if(isError) return <ErrorPage></ErrorPage>
 
   return (
     <div className={`w-10/12 mx-auto my-20`}>
       <SectionHeading title1={"---Should Try---"} title2={"CHEF RECOMMENDS"}></SectionHeading>
       <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {menuItems.map((item, index) => (
+        {offeredItems.map((item, index) => (
           <div
             key={index}
             className=" border h-[541px] rounded-lg shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-all flex flex-col justify-between duration-300"

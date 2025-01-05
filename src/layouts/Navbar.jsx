@@ -234,6 +234,10 @@ const Navbar = () => {
             <VscOpenPreview className="lg:inline-block mr-1"/> All Post Volunteer
           </Link>
 
+          <Link to="/dashboard" className={getLinkStyle('/dashboard')} onClick={() => setActiveLink('/dashboard')}>
+            <VscOpenPreview className="lg:inline-block mr-1"/> Dashboard
+          </Link>
+
      
 
         
