@@ -3,10 +3,16 @@ import axios from "axios";
 
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useFirebaseAuth } from "../hooks/useAuth";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const ApiComponent = () => {
+  
   const api = useAxiosSecure();
+  const apiPublic = useAxiosPublic();
   const { logOut } = useFirebaseAuth();
+
+
+
 
   useEffect(() => {
     api.interceptors.response.use(
@@ -26,6 +32,8 @@ const ApiComponent = () => {
     );
   }, []);
 
+
+
   const handleLogout = async () => {
     try {
       console.log("inside handle logout");
@@ -35,6 +43,9 @@ const ApiComponent = () => {
       console.error("Logout error:", error);
     }
   };
+
+
+
 
   // Helper function to handle responses
   const handleResponse = (response) => {
@@ -74,6 +85,9 @@ const ApiComponent = () => {
   };
 
   // JWT Token Validation
+  //AuthProvider.jsx
+  // TODO : make api apiPublic
+
   const jwtTokenValidation = async (data) => {
     try {
       const response = await api.post(`/jwt`, { email: data });
@@ -82,6 +96,8 @@ const ApiComponent = () => {
       handleError(error);
     }
   };
+
+
 
   // Logout route
   const logoutRoute = async () => {
@@ -93,249 +109,12 @@ const ApiComponent = () => {
     }
   };
 
-  // // start here for project
-  // const postVolunteerNeed = async (data) => {
-  //   try {
-  //     const response = await api.post(`/post-for-volunteer`, data);
-  //     return handleResponse(response);
-  //   } catch (error) {
-  //     handleError(error);
-  //   }
-  // };
 
-  // const getVolunteerPosts = async () => {
-  //   try {
-  //     const response = await api.get(`/all-post-volunteer`);
-  //     return handleResponse(response);
-  //   } catch (error) {
-  //     handleError(error);
-  //   }
-  // };
-
-  // const getVolunteerPostById = async (id) => {
-  //   try {
-  //     const response = await api.get(`/volunteer-post/${id}`);
-  //     return handleResponse(response);
-  //   } catch (error) {
-  //     handleError(error);
-  //   }
-  // };
-
-  // const postApplyVolunteer = async (data) => {
-
-  //   try {
-  //     const response = await api.post(`/apply-for-volunteer`, {data});
-  //     return handleResponse(response);
-  //   } catch (error) {
-  //     handleError(error);
-  //   }
-  // };
-
-  // // const decreaseVolunteerNeed = async (id) => {
-  // //   try {
-  // //     console.log(id);
-  // //     const response = await api.patch(`/decrease-volunteer-need/${id}`);
-  // //     return handleResponse(response);
-  // //   } catch (error) {
-  // //     handleError(error);
-  // //   }
-  // // };
-
-  // const decreaseVolunteerNeed = async (id) => {
-  //   try {
-  //     console.log("Decrementing volunteers needed for post ID:", id);
-  //     const response = await api.patch(`/decrease-volunteer-need/${id}`);
-  //     console.log("API Response:", response.data);
-  //     return handleResponse(response);
-  //   } catch (error) {
-  //     console.error("Error in decreaseVolunteerNeed:", error.message);
-  //     handleError(error);
-  //   }
-  // };
-
-  //   // Fetch all posts by a specific user
-  //   const getVolunteerPostsByEmail = async (email) => {
-  //     try {
-  //       const response = await api.get(`/volunteer-posts/${email}`);
-  //       return handleResponse(response);
-  //     } catch (error) {
-  //       handleError(error);
-  //     }
-  //   };
-
-  //   // Fetch a specific post by ID
-  //   const getMyVolunteerPostById = async (id) => {
-  //     try {
-  //       const response = await api.get(`/volunteer-post/${id}`);
-  //       return handleResponse(response);
-  //     } catch (error) {
-  //       handleError(error);
-  //     }
-  //   };
-
-  //   // Update a post
-  //   const updateVolunteerPost = async (data) => {
-  //     console.log(data._id);
-  //     try {
-  //       const response = await api.put(`/update-volunteer-post/${data._id}`, data);
-  //       return response;
-  //     } catch (error) {
-  //       return error;
-  //     }
-  //   };
-
-  //   // Delete a post
-  //   const deletePost = async (id) => {
-  //     try {
-  //       const response = await api.delete(`/delete-volunteer-post/${id}`);
-  //       return handleResponse(response);
-  //     } catch (error) {
-  //       handleError(error);
-  //     }
-  //   };
-
-  //   // __________my volunteer request  page
-
-  //   const getVolunteerRequestsByEmail = async (email) => {
-  //     try {
-  //       const response = await api.get(`/volunteer-requests/${email}`);
-  //       return handleResponse(response); // Simplified handling
-  //     } catch (error) {
-  //       console.error("Error fetching volunteer requests:", error.message);
-  //       throw new Error(error.response?.data?.message || "Failed to fetch requests");
-  //     }
-  //   };
-
-  //   const cancelVolunteerRequest = async (data) => {
-
-  //     console.log(data);
-  //     try {
-  //       const response = await api.post(`/cancel-volunteer-request`,  data );
-  //       return response; // Simplified handling
-  //     } catch (error) {
-  //       console.error("Error canceling volunteer request:", error.message);
-  //       throw new Error(error.response?.data?.message || "Failed to cancel request");
-  //     }
-  //   };
-
-  //   // home -> volunteer need now
-  //   const getSortedVolunteerPosts = async () => {
-  //     try {
-  //       const response = await api.get("/volunteer-posts-sorted");
-  //       return response.data;
-  //     } catch (error) {
-  //       console.error("Error fetching sorted posts:", error.message);
-  //       throw error;
-  //     }
-  //   };
-
-  //   // ________Work Experience
-  //   const postWorkExperience = async (data) => {
-  //     try {
-  //         const response = await api.post('/work-experience', data);
-  //         return response.data; // Return response data
-  //     } catch (error) {
-  //         console.error("Error posting work experience:", error.message);
-  //         throw new Error(error.response?.data?.message || "Failed to post work experience.");
-  //     }
-  // };
-
-  // const getWorkExperience = async () => {
-  //     try {
-  //         const response = await api.get('/work-experience');
-  //         return response.data; // Return work experience data
-  //     } catch (error) {
-  //         console.error("Error fetching work experience:", error.message);
-  //         throw new Error(error.response?.data?.message || "Failed to fetch work experience.");
-  //     }
-  // };
-
-  // // received request page
-  // const getOrganizerPosts = async (email) => {
-  //   try {
-  //     const response = await api.get(`/organizer-posts/${email}`);
-  //     return response.data;
-  //   } catch (error) {
-  //     console.error("Error fetching organizer posts:", error.message);
-  //     throw error;
-  //   }
-  // };
-
-  // const getAppliedRequests = async (postIds) => {
-  //   try {
-  //     const response = await api.post(`/applied-requests`, { postIds });
-  //     return response.data;
-  //   } catch (error) {
-  //     console.error("Error fetching applied requests:", error.message);
-  //     throw error;
-  //   }
-  // };
-
-  // // const updateRequestStatus = async (id, status) => {
-  // //   console.log("THIS IS ID:", id);
-  // //   console.log("THIS IS STATUS:", status);
-  // //   const data = {data, is}
-  // //   try {
-  // //     const response = await api.post(`/update-request-status` , data);
-  // //     console.log("Response:", response.data); // Debug the response structure
-  // //     return response;
-  // //   } catch (error) {
-  // //     console.error("Error updating request status:", error.message);
-
-  // //   }
-  // // };
-
-  // const updateRequestStatus = async (id,postId, status) => {
-  //   try {
-  //     const data = {id,postId, status}
-  //     const response = await api.post('/update-request-status', data);
-  //       return response.data; // Return response data
-  //   } catch (error) {
-  //       console.error("Error posting work experience:", error.message);
-  //       throw new Error(error.response?.data?.message || "Failed to post work experience.");
-  //   }
-  // };
-
-  // // detail post page
-  // const saveVolunteerPost = async (saveData) => {
-  //   try {
-  //     const response = await api.post(`/save-post`, saveData);
-  //     return response.data; // Return response data
-  //   } catch (error) {
-  //     console.error("Error saving the volunteer post:", error.message);
-  //     throw new Error(
-  //       error.response?.data?.message || "Failed to save the volunteer post."
-  //     );
-  //   }
-  // };
-
-  // const checkSavedStatus = async (postId, email) => {
-  //   try {
-  //     const response = await api.get(`/check-saved/${postId}/${email}`);
-  //     return response.data; // Return response data
-  //   } catch (error) {
-  //     console.error("Error fetching saved status:", error.message);
-  //     throw new Error(
-  //       error.response?.data?.message || "Failed to fetch saved status."
-  //     );
-  //   }
-  // };
-
-  // // saved post page
-  // const getSavedPosts = async (email) => {
-  //   const response = await api.get(`/saved-posts/${email}`);
-  //   return response.data;
-  // };
-
-  // const deleteSavedPost = async (postId, email) => {
-  //   const response = await api.delete(`/saved-posts/${postId}/${email}`);
-  //   return response.data;
-  // };
 
   // menu page
   const getMenuData = async () => {
     try {
-      const response = await api.get(`/menu`);
+      const response = await apiPublic.get(`/menu`);
       return handleResponse(response); // Simplified handling
     } catch (error) {
       console.error("Error fetching volunteer requests:", error.message);
@@ -348,7 +127,7 @@ const ApiComponent = () => {
   // testimonialSlide
   const getReviews = async () => {
     try {
-      const response = await api.get(`/reviews`);
+      const response = await apiPublic.get(`/reviews`);
       return handleResponse(response); // Simplified handling
     } catch (error) {
       console.error("Error fetching volunteer requests:", error.message);
@@ -361,7 +140,7 @@ const ApiComponent = () => {
   // order card
   const addToCart = async (cartItem) => {
     try {
-      const response = await api.post("/cart", cartItem);
+      const response = await apiPublic.post("/cart", cartItem);
       return response.data;
       ata;
     } catch (error) {
@@ -374,7 +153,7 @@ const ApiComponent = () => {
 
   const getCart = async (email) => {
     try {
-      const response = await api.get(`/cart/${email}`);
+      const response = await apiPublic.get(`/cart/${email}`);
       return handleResponse(response);
     } catch (error) {
       console.error("Error fetching volunteer requests:", error.message);
@@ -383,6 +162,97 @@ const ApiComponent = () => {
       );
     }
   };
+
+    const deleteFromCart = async (id) => {
+      // console.log(id);
+      try {
+        const response = await apiPublic.delete(`/cart/${id}`);
+        return handleResponse(response);
+      } catch (error) {
+        handleError(error);
+      }
+    };
+
+
+    // register page
+    const createUser = async (user) => {
+      try {
+        const response = await apiPublic.post("/users", user);
+      //  console.log(response);
+        return response.data;
+       
+      } catch (error) {
+        console.error("Error adding the item to the cart:", error.message);
+        throw new Error(
+          error.response?.data?.message || "Failed to add the item to the cart."
+        );
+      }
+    };
+
+
+    // AllUsers.jsx page
+    const getAllUsers = async ()=>{
+      try {
+        const response = await api.get("/users");
+        return handleResponse(response);
+      } catch (error) {
+        console.error("Error fetching volunteer requests:", error.message);
+      throw new Error(
+        error.response?.data?.message || "Failed to fetch requests"
+      );
+      }
+    }
+
+
+// Dashboard.jsx
+    const verifyAdmin = async (email)=>{
+      try {
+
+        console.log(email);
+        const response = await api.get(`/user/admin/${email}`);
+        return handleResponse(response);
+      } catch (error) {
+        console.error("Error fetching volunteer requests:", error.message);
+      throw new Error(
+        error.response?.data?.message || "Failed to fetch requests"
+      );
+      }
+    }
+
+
+ // AllUsers.jsx page
+    const deleteUser = async (id) => {
+      // console.log(id);
+      try {
+        const response = await api.delete(`/users/${id}`);
+        return handleResponse(response);
+      } catch (error) {
+        handleError(error);
+      }
+    };
+    
+    
+// AllUsers.jsx
+//secure route
+    const updateUserRole = async (id, role) => {
+      try {
+        const data = {
+          id: id,
+          role: role,
+        }
+        const response = await api.post("/role", data);
+      //  console.log(response);
+        return response.data;
+       
+      } catch (error) {
+        console.error("Error adding the item to the cart:", error.message);
+        throw new Error(
+          error.response?.data?.message || "Failed to add the item to the cart."
+        );
+      }
+    };
+    
+
 
   // Return the methods and logic for usage in components
   return {
@@ -393,7 +263,17 @@ const ApiComponent = () => {
     getReviews,
 
     addToCart,
-    getCart
+    getCart,
+    
+    deleteFromCart,
+
+    createUser,
+
+    getAllUsers,
+    deleteUser,
+    updateUserRole,
+
+    verifyAdmin,
   };
 };
 

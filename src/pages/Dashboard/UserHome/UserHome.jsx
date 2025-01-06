@@ -102,7 +102,7 @@ const UserHome = () => {
   return (
     <div className="w-full p-6 md:p-12 bg-gray-50">
       {/* Welcome Section */}
-      <h2 className="text-2xl md:text-3xl font-extrabold mb-8 text-gray-800">Hi, Welcome Back!</h2>
+      <h2 className="text-2xl md:text-3xl font-extrabold mb-8 text-gray-800 new_heading_font">Hi, Welcome Back!</h2>
 
       {/* Stats Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">

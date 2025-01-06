@@ -230,9 +230,7 @@ const Navbar = () => {
              Contact
           </Link>
 
-          <Link to="/all-post-volunteer" className={getLinkStyle('/all-post-volunteer')} onClick={() => setActiveLink('/all-post-volunteer')}>
-            <VscOpenPreview className="lg:inline-block mr-1"/> All Post Volunteer
-          </Link>
+         
 
           <Link to="/dashboard" className={getLinkStyle('/dashboard')} onClick={() => setActiveLink('/dashboard')}>
             <VscOpenPreview className="lg:inline-block mr-1"/> Dashboard

@@ -8,13 +8,13 @@ const useCart = () => {
     const {user} = useFirebaseAuth();
     const userEmail = user?.email;
 
-    const {data, refetch} = useQuery({
+    const {data, refetch, isLoading, isError} = useQuery({
         queryKey: ["cartItems", userEmail],
         queryFn: () => getCart(userEmail),
     })
 
 
-  return {data, refetch};
+  return {data, refetch, isLoading, isError};
 }
 
 export default useCart

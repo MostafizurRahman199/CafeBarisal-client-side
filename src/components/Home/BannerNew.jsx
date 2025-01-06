@@ -36,7 +36,7 @@ const BannerNew = () => {
   };
 
   return (
-    <div className="relative w-full h-[600px] sm:h-[700px] lg:h-[800px] ">
+    <div className="relative w-full h-[600px] sm:h-[600px] lg:h-[600px] ">
       {/* Main Carousel Image */}
       <div className="w-full h-full overflow-hidden">
         <img

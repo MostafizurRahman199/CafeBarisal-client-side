@@ -38,7 +38,10 @@ const MainLayout = () => {
               <Footer />{" "}
             </>
           ) : (
+           <>
+            <Navbar />
             <Outlet />
+           </>
           )}
         </>
       )}

@@ -16,6 +16,7 @@ import { useFirebaseAuth } from '../hooks/useAuth';
 import authenticationImage from "../../public/others/authentication2.png";
 import CaptchaComponent from '../components/Capcha/CaptchaComponent';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import GoogleSignIn from '../components/SocialLogin/GoogleSignIn';
 
 
 const Login = () => {
@@ -153,37 +154,37 @@ const Login = () => {
 
 
 
-  const handleGoogleSignIn = async () => {
-    try {
-      const result = await googleSignIn();
-      // console.log(result.email);
+  // const handleGoogleSignIn = async () => {
+  //   try {
+  //     const result = await googleSignIn();
+  //     // console.log(result.email);
  
-      Swal.fire({
-        position: "top-center",
-        icon: "success",
-        title: "Login Successfully",
-        showConfirmButton: false,
-        timer: 1500
-      });
-      navigate(from, { replace: true });
-    } catch (error) {
-      showError(error);
-      Swal.fire({
-        position: "top-center",
-        icon: "error",
-        title: "Something error, Try again",
-        showConfirmButton: false,
-        timer: 1500
-      });
-    }
-  };
+  //     Swal.fire({
+  //       position: "top-center",
+  //       icon: "success",
+  //       title: "Login Successfully",
+  //       showConfirmButton: false,
+  //       timer: 1500
+  //     });
+  //     navigate(from, { replace: true });
+  //   } catch (error) {
+  //     showError(error);
+  //     Swal.fire({
+  //       position: "top-center",
+  //       icon: "error",
+  //       title: "Something error, Try again",
+  //       showConfirmButton: false,
+  //       timer: 1500
+  //     });
+  //   }
+  // };
 
   const handleForgotPassword = () => {
     navigate('/forgot-password', { state: { email } });
   };
 
   return (
-    <div className="md:w-10/12 min-h-screen mx-auto flex items-center justify-center  py-24 px-4 sm:px-6 lg:px-8">
+    <div className="md:w-10/12 min-h-screen mx-auto flex items-center justify-center  py-20 px-4 sm:px-6 lg:px-8">
       <div className=" w-full flex flex-col md:flex md:flex-row justify-center items-center gap-4  space-y-4 sm:shadow-2xl p-8  rounded-2xl bg-gray-100" data-aos="zoom-in">
        <div className='flex-1'>
        <div>
@@ -272,13 +273,14 @@ const Login = () => {
         </div>
 
         <div className="mt-6">
-          <button
+          {/* <button
             onClick={handleGoogleSignIn}
             className="w-full flex items-center justify-center px-4 py-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
           >
             <FcGoogle className="h-5 w-5 mr-2" />
             Continue with Google
-          </button>
+          </button> */}
+          <GoogleSignIn title="Login" from={from}></GoogleSignIn>
         </div>
 
         <p className="mt-2 text-center text-sm text-gray-600">

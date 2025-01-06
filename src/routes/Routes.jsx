@@ -19,6 +19,7 @@ import Contact from "../pages/Contact/Contact";
 import Dashboard from "../layouts/Dashboard";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import MyCart from "../pages/Dashboard/MyCart";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 
 
 
@@ -166,10 +167,28 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <Dashboard />,
         children: [
-          {
-            path: "user-home",
-            element: <UserHome></UserHome>, // Replace with your actual component, e.g., <UserHome />
-          },
+            {
+                index: true, // This makes it the default route for /dashboard
+                element:<>
+                <Helmet>
+                    <title>CafeBarisal - Dashboard</title>
+                </Helmet>
+                <PrivateRoute>
+                    <UserHome></UserHome>
+                </PrivateRoute>
+            </>
+              },
+              {
+                path: "user-home",
+                element: <>
+                <Helmet>
+                    <title>CafeBarisal - User Home</title>
+                </Helmet>
+                <PrivateRoute>
+                    <UserHome></UserHome>
+                </PrivateRoute>
+            </> // Explicit route for /dashboard/user-home
+              },
           {
             path: "reservation",
             element: <div>Reservation Page</div>, // Replace with your actual component, e.g., <Reservation />
@@ -190,6 +209,17 @@ const router = createBrowserRouter([
             path: "my-booking",
             element: <div>My Booking Page</div>, // Replace with your actual component, e.g., <MyBooking />
           },
+          {
+            path:"all-users",
+            element: <>
+            <Helmet>
+                <title>CafeBarisal - All Users</title>
+            </Helmet>
+            <PrivateRoute>
+                <AllUsers></AllUsers>
+            </PrivateRoute>
+        </>
+          }
         ],
       },
     {
