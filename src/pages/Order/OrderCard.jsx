@@ -97,13 +97,13 @@ const addToCartMutation = useMutation({
             className="border h-[450px] rounded-lg shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-all flex flex-col justify-between duration-300"
           >
             <img
-              src={item.image}
+              src={item.image || item.imageUrls[0]}
               alt={item.name}
               className="flex-1 w-full h-1/2 object-cover "
             />
             <div className={`p-4 flex-1 flex flex-col justify-center`}>
               <h3 className="text-xl font-bold text-center">{item.name}</h3>
-              <p className="text-sm mb-4 text-center">{item.recipe}</p>
+              <p className="text-sm mb-4 text-center">{item.recipe.slice(0,100)}</p>
               <div className="flex justify-center items-center">
                 <button
                 

@@ -20,6 +20,9 @@ import Dashboard from "../layouts/Dashboard";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import MyCart from "../pages/Dashboard/MyCart";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import AddMenuItem from "../pages/Dashboard/AddMenu/AddMenuItem";
+import AdminRoute from "./AdminRoute";
+import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
 
 
 
@@ -215,9 +218,31 @@ const router = createBrowserRouter([
             <Helmet>
                 <title>CafeBarisal - All Users</title>
             </Helmet>
-            <PrivateRoute>
+            <AdminRoute>
                 <AllUsers></AllUsers>
-            </PrivateRoute>
+            </AdminRoute>
+        </>
+          },
+          {
+            path:"add-menu-item",
+            element: <>
+            <Helmet>
+                <title>CafeBarisal - Add Menu Item</title>
+            </Helmet>
+            <AdminRoute>
+                <AddMenuItem></AddMenuItem>
+            </AdminRoute>
+        </>
+          },
+          {
+            path:"manage-items",
+            element: <>
+            <Helmet>
+                <title>CafeBarisal - Add Menu Item</title>
+            </Helmet>
+            <AdminRoute>
+                <ManageItems></ManageItems>
+            </AdminRoute>
         </>
           }
         ],

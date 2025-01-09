@@ -112,6 +112,7 @@ const ApiComponent = () => {
 
 
   // menu page
+  //public api call
   const getMenuData = async () => {
     try {
       const response = await apiPublic.get(`/menu`);
@@ -230,6 +231,17 @@ const ApiComponent = () => {
         handleError(error);
       }
     };
+
+ // AllUsers.jsx page
+    const deleteMenuItem = async (id) => {
+      // console.log(id);
+      try {
+        const response = await api.delete(`/menu-item/${id}`);
+        return handleResponse(response);
+      } catch (error) {
+        handleError(error);
+      }
+    };
     
     
 // AllUsers.jsx
@@ -251,6 +263,41 @@ const ApiComponent = () => {
         );
       }
     };
+
+
+// AllUsers.jsx
+//secure route
+    const updateMenuItem = async (data) => {
+      try {
+       
+        // console.log(data);
+        const response = await api.post("/update-menu-item", data);
+       console.log(response);
+        return response.data;
+       
+       
+      } catch (error) {
+        console.error("Error adding the item to the cart:", error.message);
+        throw new Error(
+          error.response?.data?.message || "Failed to add the item to the cart."
+        );
+      }
+    };
+
+
+    const uploadMenu = async (data) => {
+      try {
+        console.log(data);
+        const response = await api.post("/upload-menu-item", data);
+        return response.data;
+        } catch (error) {
+          console.error("Error adding the item to the cart:", error.message);
+          throw new Error(
+            error.response?.data?.message || "Failed to add the item to the cart."
+            );
+          }
+        }
+
     
 
 
@@ -274,6 +321,11 @@ const ApiComponent = () => {
     updateUserRole,
 
     verifyAdmin,
+
+    uploadMenu,
+    
+    deleteMenuItem,
+    updateMenuItem
   };
 };
 

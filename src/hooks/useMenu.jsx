@@ -7,12 +7,12 @@ const useMenu = () => {
   const {getMenuData} = ApiComponent();
 
 
-  const {data: menuData, isLoading, isError, error} = useQuery({
+  const {data: menuData, isLoading, isError, error, refetch} = useQuery({
     queryKey: ['menuData'],
     queryFn: getMenuData,
   })
 
-  return {menuData, isLoading, isError, error};
+  return {menuData, isLoading, isError, error, refetch};
 }
 
 export default useMenu
