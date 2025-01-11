@@ -14,6 +14,7 @@ const useUserRole = () => {
   const { data , isLoading:adminLoading } = useQuery({
     queryKey: ["verifyAdmin", email],
     queryFn: () => verifyAdmin(email),
+    enabled: !!email,
   });
 
   const isAdmin = data?.role === "Admin" ? true : false;

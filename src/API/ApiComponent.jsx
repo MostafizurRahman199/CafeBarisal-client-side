@@ -164,9 +164,24 @@ const ApiComponent = () => {
     }
   };
 
+  // AdminHome.jsx
+  const adminStats = async (email) => {
+    try {
+      const response = await apiPublic.get(`/admin-stats/${email}`);
+      return handleResponse(response);
+    } catch (error) {
+      console.error("Error fetching volunteer requests:", error.message);
+      throw new Error(
+        error.response?.data?.message || "Failed to fetch requests"
+      );
+    }
+  };
+
+
+
     const deleteFromCart = async (id) => {
-      // console.log(id);
       try {
+        console.log(id);
         const response = await apiPublic.delete(`/cart/${id}`);
         return handleResponse(response);
       } catch (error) {
@@ -298,6 +313,63 @@ const ApiComponent = () => {
           }
         }
 
+
+
+    const createPaymentIntent = async (totalPrice) => {
+      try {
+        console.log(totalPrice);
+        const data = {
+          totalPrice: totalPrice
+        }
+        const response = await api.post('/create-payment-intent', { totalPrice }, {
+          headers: {
+            'Content-Type': 'application/json',
+          },})
+
+        return response.data;
+        } catch (error) {
+          console.error("Error adding the item to the cart:", error.message);
+          throw new Error(
+            error.response?.data?.message || "Failed to add the item to the cart."
+            );
+          }
+        }
+
+
+
+
+  const  postPaymentInfo =  async (payment) => {
+    try {
+   
+      console.log(payment)
+      const response = await api.post('/payments', payment)
+
+      // return true;
+      return response.data;
+      } catch (error) {
+        console.error("Error adding the item to the cart:", error.message);
+        throw new Error(
+          error.response?.data?.message || "Failed to add the item to the cart."
+          );
+        }
+      }
+
+
+      //______________PaymentHistory.jsx
+
+      const getPaymentHistory = async (email)=>{
+        try {
+  
+          console.log(email);
+          const response = await api.get(`/payment-history/${email}`);
+          return handleResponse(response);
+        } catch (error) {
+          console.error("Error fetching volunteer requests:", error.message);
+        throw new Error(
+          error.response?.data?.message || "Failed to fetch requests"
+        );
+        }
+      }
     
 
 
@@ -325,7 +397,14 @@ const ApiComponent = () => {
     uploadMenu,
     
     deleteMenuItem,
-    updateMenuItem
+    updateMenuItem,
+    
+    createPaymentIntent,
+    postPaymentInfo,
+
+    getPaymentHistory,
+
+    adminStats,
   };
 };
 

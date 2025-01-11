@@ -13,8 +13,10 @@ const useCart = () => {
         queryFn: () => getCart(userEmail),
     })
 
+    const totalPrice = data?.reduce((total, item)=> total + item.price, 0);
 
-  return {data, refetch, isLoading, isError};
+
+  return {data,totalPrice, refetch, isLoading, isError};
 }
 
 export default useCart

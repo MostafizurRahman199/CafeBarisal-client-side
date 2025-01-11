@@ -16,6 +16,7 @@ import humanityLogo from "../../public/humanity.png";
 import DarkModeToggle from '../components/Navbar/DarkModeToggle';
 import { MdMenuBook } from "react-icons/md";
 import AddToCardBadge from '../components/Navbar/AddToCardBadge';
+import useUserRole from '../hooks/useUserRole';
 
 const Navbar = () => {
 
@@ -25,8 +26,11 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [activeLink, setActiveLink] = React.useState(location.pathname);
   const { user, logOut, loading } = useFirebaseAuth();
+  const {isAdmin} = useUserRole();
   const navigate = useNavigate();
   const {darkMode} = useDarkMode()
+
+
   
   
 
@@ -232,10 +236,19 @@ const Navbar = () => {
 
          
 
-          <Link to="/dashboard" className={getLinkStyle('/dashboard')} onClick={() => setActiveLink('/dashboard')}>
+        {
+            user && isAdmin && <> <Link to="/dashboard/admin-home" className={getLinkStyle('/dashboard')} onClick={() => setActiveLink('/dashboard')}>
             <VscOpenPreview className="lg:inline-block mr-1"/> Dashboard
           </Link>
+            </>
+        }
 
+        {
+          user && !isAdmin &&  <>  <Link to="/dashboard/user-home" className={getLinkStyle('/dashboard')} onClick={() => setActiveLink('/dashboard')}>
+          <VscOpenPreview className="lg:inline-block mr-1"/> Dashboard
+         </Link>
+        </> 
+        }
      
 
         

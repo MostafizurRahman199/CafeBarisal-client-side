@@ -6,6 +6,8 @@ import ErrorPage from "../../components/Error.jsx/ErrorPage";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import ApiComponent from "../../API/ApiComponent";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import { Button } from "@material-tailwind/react";
 
 const MyCart = () => {
   const { deleteFromCart } = ApiComponent();
@@ -37,6 +39,18 @@ const MyCart = () => {
       });
     },
   });
+
+
+  // const showMessage = ()=>{
+  //   Swal.fire({
+  //     icon: "warning",
+  //     title: "Cart is Empty",
+  //     text: "Please first add items to Cart then pay.",
+  //     timer: 1500,
+  //     showConfirmButton: false,
+  //   });
+  // }
+
 
   const handleDelete = (id) => {
     // console.log("hello");
@@ -73,12 +87,12 @@ const MyCart = () => {
           <p className="text-lg md:text-xl text-gray-700 font-medium">
             No orders added yet!
           </p>
-          <button
+          <Link to={"/order/:category"}
             className="mt-4 px-6 py-2 bg-[#D1A054] text-white rounded-lg shadow-md font-semibold hover:bg-[#b5853a] transition-all"
             onClick={() => console.log("Redirect to shop")}
           >
             Browse Menu
-          </button>
+          </Link>
         </div>
       </div>
     );
@@ -99,9 +113,13 @@ const MyCart = () => {
               .toFixed(2)}
           </h2>
         </div>
-        <button className="bg-[#D1A054] text-white px-6 py-2 rounded-lg  shadow-md hover:bg-[#b5853a]">
-          Pay
-        </button>
+       {
+        cartData?.length > 0 ? <Link to={"/dashboard/payment"} className="bg-[#D1A054] text-white px-6 py-2 rounded-lg  shadow-md hover:bg-[#b5853a]">
+        Pay
+      </Link> : <Button onClick={showMessage} className="bg-[#D1A054] text-white px-6 py-2 rounded-lg  shadow-md hover:bg-[#b5853a]">
+        Pay
+      </Button>
+       }
       </div>
 
       {/* Table for medium and large devices */}
