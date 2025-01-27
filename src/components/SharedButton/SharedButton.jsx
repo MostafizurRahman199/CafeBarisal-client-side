@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const SharedButton = ({title="Button", path="/"}) => {
+const SharedButton = ({title="Button", path="Salad"}) => {
   return (
     <div className="text-center my-8">
       <Link to={`/order/${path}`}>

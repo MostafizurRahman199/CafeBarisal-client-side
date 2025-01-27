@@ -1,6 +1,7 @@
 
 import { FaCartShopping } from "react-icons/fa6";
 import useCart from "../../hooks/useCart";
+import { Link } from "react-router-dom";
 
 const CustomBadge = ({ count, children }) => {
   return (
@@ -25,13 +26,13 @@ const AddToCardBadge = () => {
 const {data} = useCart();
 
   return (
-    <div className="flex items-center gap-8">
+    <Link to={"/dashboard/my-cart"} className="flex items-center gap-8">
       <CustomBadge count={data?.length}>
         <button className="p-2 bg-gray-200 rounded-full hover:bg-gray-300">
           <FaCartShopping  className="text-xl text-black" />
         </button>
       </CustomBadge>
-    </div>
+    </Link>
   );
 };
 

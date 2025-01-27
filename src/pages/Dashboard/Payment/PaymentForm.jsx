@@ -230,7 +230,7 @@ const PaymentForm = () => {
 const {totalPrice} = useCart();
 
   return (
-    <div className="min-h-screen flex items-start justify-center  py-12">
+    <div className="flex items-start justify-center  py-12">
       <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-md">
         <h1 className="text-center text-2xl font-bold mb-6 text-black">PAYMENT</h1>
         <div className="py-4">

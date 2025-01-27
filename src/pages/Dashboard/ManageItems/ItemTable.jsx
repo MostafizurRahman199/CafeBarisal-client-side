@@ -5,7 +5,7 @@ import { Button } from "@material-tailwind/react";
 
 const ItemTable = ({ menuData, handleModalOpen, handleDelete }) => {
   return (
-    <div className="w-full bg-white shadow-lg rounded-lg p-6">
+    <div className="w-full bg-white shadow-lg rounded-lg p-6 my-8">
     <div className="flex justify-between items-center border-b pb-4 mb-4">
       <h2 className="text-xl font-semibold text-gray-800">
         Total Users: {menuData.length}
@@ -20,11 +20,11 @@ const ItemTable = ({ menuData, handleModalOpen, handleDelete }) => {
             <th className="py-2 px-4 text-center">No.</th>
             <th className="py-2 px-4 text-center">Image</th>
             <th className="py-2 px-4 text-center">Name</th>
+            <th className="py-2 px-4 text-center">Category</th>
             <th className="py-2 px-4 text-center">Price</th>
-            <th className="py-2 px-4 text-center">Created At</th>
-            <th className="py-2 px-4 text-center">Role</th>
-            <th className="py-2 px-4 text-center">Action</th>
-            <th className="py-2 px-4 text-center">Delete</th>
+            <th className="py-2 px-4 text-center ">Edit</th>
+            <th className="py-2 px-4 text-center ">Delete</th>
+         
           </tr>
         </thead>
         <tbody>
@@ -43,9 +43,7 @@ const ItemTable = ({ menuData, handleModalOpen, handleDelete }) => {
               <td className="py-4 px-4 text-center">{item.name}</td>
               <td className="py-4 px-4 text-center">{item.category}</td>
               <td className="py-4 px-4 text-center">{item.price}</td>
-              <td className="py-4 px-4 text-center">
-                {new Date(item.createAt).toLocaleDateString()}
-              </td>
+             
               <td className="py-4 px-4 text-center ">
               <button
                   onClick={() => handleModalOpen(item)}

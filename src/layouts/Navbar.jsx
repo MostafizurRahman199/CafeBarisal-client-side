@@ -190,7 +190,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className={`font_header ${darkMode == true ? "bg-black/10 text-white" : "bg-black/10 text-white"} backdrop-blur-md fixed  shadow-lg w-full top-0 z-50`}>
+    <nav className={`font_header ${darkMode == true ? "bg-black/10 text-white" : "bg-black/50 text-white"} backdrop-blur-md fixed  shadow-lg w-full top-0 z-50`}>
       <div className="w-full mx-auto px-2 sm:px-2 lg:px-2">
         <div className="flex justify-between items-center h-16">
        
@@ -280,7 +280,7 @@ const Navbar = () => {
           </div> */}
 
 
-        <div className={`dropdown dropdown-bottom ${isProfileActive ? "active-class" : ""}`}>
+        {/* <div className={`dropdown dropdown-bottom ${isProfileActive ? "active-class" : ""}`}>
             <div
               tabIndex={0}
               role="button"
@@ -328,7 +328,7 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           <AddToCardBadge></AddToCardBadge>
 
@@ -375,7 +375,7 @@ const Navbar = () => {
 
 
           <div className="dropdown dropdown-hover dropdown-end">
-            <div tabIndex={0} role="button" className=" btn-circle"> 
+            <div tabIndex={0} role="button" className=" btn-circle mt-4"> 
               <ProfileImage user={user} />
               </div>
             <ul tabIndex={0} className={`dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow ${darkMode == true ? "text-white bg-black" : "text-black bg-white"}`}>

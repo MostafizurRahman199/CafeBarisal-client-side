@@ -8,7 +8,8 @@ import Aos from "aos";
 import { useEffect } from "react";
 
 import Swal from "sweetalert2";
-import registerAnimation from "../../public/register.json";
+// import registerAnimation from "../../public/register.json";
+import registerAnimation from "../../public/foodRegistration.json";
 import Lottie from "lottie-react";
 import { useFirebaseAuth } from "../hooks/useAuth";
 import ApiComponent from "../API/ApiComponent";
@@ -149,7 +150,7 @@ const Register = () => {
       >
         <div className="flex-1 ">
           <div>
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-black">
+            <h2 className="mt-6 text-center text-3xl font-extrabold text-[#D1A054]">
               Create your account
             </h2>
           </div>
@@ -219,7 +220,7 @@ const Register = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center  border border-transparent text-sm   bg-[#41B3A2] hover:bg-[#0D7C66] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black px-8 py-3 rounded-3xl text-white font-bold transition-transform hover:scale-105 shadow-2xl"
+                className="group relative w-full flex justify-center  border border-transparent text-sm   bg-[#D1A054] hover:bg-[#e49012] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black px-8 py-3 rounded-3xl text-white font-bold transition-transform hover:scale-105 shadow-2xl"
               >
                 Register
               </button>
@@ -247,7 +248,7 @@ const Register = () => {
             Already have an account?{" "}
             <Link
               to="/login"
-              className="font-medium text-black hover:text-[#41B3A2]"
+              className="font-medium text-black hover:text-[#D1A054]"
             >
               Login here
             </Link>

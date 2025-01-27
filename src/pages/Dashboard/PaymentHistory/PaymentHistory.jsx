@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import ApiComponent from '../../../API/ApiComponent';
 import { Link } from 'react-router-dom';
 import SectionHeading from '../../../components/SectionHeading/SectionHeading';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const PaymentHistory = () => {
 

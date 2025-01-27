@@ -15,6 +15,8 @@ import {
   BarElement,
 } from 'chart.js';
 import { BarChart, Bar, XAxis, YAxis, Tooltip as RechartsTooltip, Legend as RechartsLegend, Cell } from 'recharts';
+import Loading from '../../../components/Loading/Loading';
+import ErrorPage from '../../../components/Error.jsx/ErrorPage';
 
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 
@@ -31,11 +33,11 @@ const AdminHome = () => {
   });
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading height='screen'></Loading>;
   }
 
   if (isError) {
-    return <div>Failed to load admin stats. Please try again later.</div>;
+    return <ErrorPage></ErrorPage>;
   }
 
  

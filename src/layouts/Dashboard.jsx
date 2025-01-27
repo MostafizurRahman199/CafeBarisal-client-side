@@ -168,14 +168,14 @@ const Dashboard = () => {
 
   const links = [
     { to: "/dashboard/user-home", label: "User Home", icon: <FaHome /> },
-    { to: "/dashboard/reservation", label: "Reservation", icon: <FaCalendarAlt /> },
+    // { to: "/dashboard/reservation", label: "Reservation", icon: <FaCalendarAlt /> },
     { to: "/dashboard/payment-history", label: "Payment History", icon: <FaRegCreditCard /> },
     { to: "/dashboard/my-cart", label: "My Cart", icon: <FaShoppingCart /> },
     { to: "/dashboard/add-review", label: "Add Review", icon: <FaStar /> },
-    { to: "/dashboard/my-booking", label: "My Booking", icon: <FaBookOpen /> },
+    // { to: "/dashboard/my-booking", label: "My Booking", icon: <FaBookOpen /> },
     { to: "/", label: "Home", icon: <FaHome />, isDivider: true },
     { to: "/menu", label: "Menu", icon: <FaUtensils /> },
-    { to: "/shop", label: "Shop", icon: <FaShoppingBag /> },
+    { to: "/order/:category", label: "Shop", icon: <FaShoppingBag /> },
     { to: "/contact", label: "Contact", icon: <FaPhoneAlt /> },
   ];
 
@@ -183,11 +183,11 @@ const Dashboard = () => {
     { to: "/dashboard/admin-home", label: "Dashboard Home", icon: <FaHome /> },
     { to: "/dashboard/add-menu-item", label: "Add Items", icon: <FaPlusSquare /> },
     { to: "/dashboard/manage-items", label: "Manage Items", icon: <FaTasks /> },
-    { to: "/dashboard/manage-bookings", label: "Manage Bookings", icon: <FaClipboardList /> },
+    // { to: "/dashboard/manage-bookings", label: "Manage Bookings", icon: <FaClipboardList /> },
     { to: "/dashboard/all-users", label: "All Users", icon: <FaUsers /> },
     { to: "/", label: "Home", icon: <FaHome />, isDivider: true },
     { to: "/menu", label: "View Menu", icon: <FaUtensils /> },
-    { to: "/shop", label: "Shop Now", icon: <FaShoppingBag /> },
+    { to: "/order/:category", label: "Shop Now", icon: <FaShoppingBag /> },
     { to: "/contact", label: "Contact Us", icon: <FaPhone /> },
   ];
 

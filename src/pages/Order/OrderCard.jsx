@@ -7,7 +7,7 @@ import useCart from "../../hooks/useCart";
 
 
 
-const OrderCard = ({ foodData, currentPage, itemsPerPage }) => {
+const OrderCard = ({ foodData, currentPage=1, itemsPerPage=6 }) => {
 
   const {addToCart} = ApiComponent();
   const {user} = useFirebaseAuth();
@@ -90,11 +90,11 @@ const addToCartMutation = useMutation({
 
   return (
     <div className={`w-11/12 md:w-10/12 mx-auto my-20`}>
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
         {paginatedData.map((item, index) => (
           <div
             key={index}
-            className="border h-[450px] rounded-lg shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-all flex flex-col justify-between duration-300"
+            className=" h-[450px] rounded-lg shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-all flex flex-col justify-between duration-300"
           >
             <img
               src={item.image || item.imageUrls[0]}

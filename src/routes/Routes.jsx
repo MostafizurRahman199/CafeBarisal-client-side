@@ -26,6 +26,8 @@ import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import AddReview from "../pages/Dashboard/AddReview/AddReview";
+import PaymentParent from "../pages/Dashboard/Payment/PaymentParent";
 
 const router = createBrowserRouter([
   {
@@ -166,7 +168,7 @@ const router = createBrowserRouter([
               <title>CafeBarisal - Payment</title>
             </Helmet>
             <PrivateRoute>
-              <Payment></Payment>
+              <PaymentParent></PaymentParent>
             </PrivateRoute>
           </>
         ),
@@ -209,9 +211,19 @@ const router = createBrowserRouter([
         path: "my-cart",
         element: <MyCart></MyCart>, // Replace with your actual component, e.g., <MyCart />
       },
+     
       {
         path: "add-review",
-        element: <div>Add Review Page</div>, // Replace with your actual component, e.g., <AddReview />
+        element: (
+          <>
+            <Helmet>
+              <title>CafeBarisal - Add Review</title>
+            </Helmet>
+            <PrivateRoute>
+              <AddReview></AddReview>
+            </PrivateRoute>
+          </>
+        ), // Explicit route for /dashboard/user-home
       },
       {
         path: "my-booking",

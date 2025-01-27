@@ -44,38 +44,38 @@ const Profile = () => {
 
   return (
     <div
-      className={`min-h-screen flex justify-center items-center bg-gradient-to-br from-[#BDE8CA] to-[#41B3A2]`}
+      className={`min-h-screen flex justify-center items-center `}
     >
       <div
-        className={`w-11/12 md:w-8/12 lg:w-6/12 shadow-lg rounded-md p-8 ${darkMode == true ? "bg-black" : "bg-white "}`}
+        className={`w-11/12 md:w-8/12 lg:w-6/12 shadow-2xl shadow-[#D1A054] rounded-2xl  p-8 ${darkMode == true ? "bg-black" : "bg-white "}`}
         data-aos="zoom-in"
       >
         {/* Header */}
-        <div className="flex flex-col items-center text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#0D7C66] mb-2">
+        {/* <div className="flex flex-col items-center text-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#D1A054] mb-2">
             Welcome to Your Profile
           </h1>
           <p className="text-gray-600">Manage your profile and updates effortlessly</p>
-        </div>
+        </div> */}
 
         {/* Profile Section */}
         <div className="relative mt-6">
           {/* Decorative Frame */}
-          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
+          {/* <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
             <Lottie animationData={frame} style={{ height: 200, width: 200 }} />
-          </div>
+          </div> */}
           {/* Profile Picture */}
-          {/* <div className="w-fit mx-auto p-1 bg-gradient-to-r from-[#0D7C66] to-[#41B3A2] rounded-full"> */}
+          {/* <div className="w-fit mx-auto p-1 bg-gradient-to-r from-[#D1A054] to-[#a01011] rounded-full"> */}
           <div className="w-fit mx-auto p-1 ">
             <img
               src={getProfileImage(user)}
               alt="Profile"
-              className="w-24 h-24 md:w-32 md:h-32  object-cover border-4 border-white"
+              className="w-24 h-24 md:w-32 md:h-32  rounded-full object-cover border-4 border-white"
             />
           </div>
           {/* User Details */}
           <div className="text-center mt-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0D7C66]">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#D1A054]">
               {user?.displayName}
             </h2>
             <p className="text-sm text-gray-600">{user?.email}</p>
@@ -91,7 +91,7 @@ const Profile = () => {
           ].map(({ label, value }, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center justify-center bg-[#41B3A2] text-white w-28 h-28 rounded-md shadow-md"
+              className="flex flex-col items-center justify-center bg-[#a01011] text-white w-28 h-28 rounded-md shadow-md"
             >
               <p className="text-xl font-bold">{value}</p>
               <p className="text-sm">{label}</p>
@@ -103,7 +103,7 @@ const Profile = () => {
         <div className="mt-8 flex justify-center">
           <button
             onClick={handleUpdateClick}
-            className="bg-gradient-to-r from-[#0D7C66] to-[#41B3A2] text-white px-6 py-3 rounded-md font-semibold hover:scale-105 transition-transform"
+            className="bg-gradient-to-r from-[#D1A054] to-[#bd770e] text-white px-6 py-3 rounded-md font-semibold hover:scale-105 transition-transform"
           >
             Update Profile
           </button>

@@ -140,7 +140,7 @@ const AllUsers = () => {
         </div>
 
         {/* Users Table */}
-        <div className="hidden md:block overflow-x-auto">
+        <div className="hidden md:block overflow-x-auto  md:h-[300px] lg:h-[400px] overflow-auto">
           <table className="table-auto w-full text-left border-collapse">
             <thead>
               <tr className="bg-[#D1A054] text-white font-normal">

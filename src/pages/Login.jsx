@@ -184,11 +184,11 @@ const Login = () => {
   };
 
   return (
-    <div className="md:w-10/12 min-h-screen mx-auto flex items-center justify-center  py-20 px-4 sm:px-6 lg:px-8">
+    <div className="md:w-10/12 min-h-screen mx-auto  flex items-center justify-center  py-20 px-4 sm:px-6 lg:px-8">
       <div className=" w-full flex flex-col md:flex md:flex-row justify-center items-center gap-4  space-y-4 sm:shadow-2xl p-8  rounded-2xl bg-gray-100" data-aos="zoom-in">
        <div className='flex-1'>
        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-black">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-[#D1A054]">
             Login to your account
           </h2>
         </div>

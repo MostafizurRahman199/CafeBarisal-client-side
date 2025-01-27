@@ -354,6 +354,22 @@ const ApiComponent = () => {
         }
       }
 
+  const  postReview =  async (review) => {
+    try {
+   
+      // console.log(review)
+      const response = await api.post('/reviews', review)
+      console.log(response);
+      // return true;
+      return response.data;
+      } catch (error) {
+        console.error("Error adding the item to the cart:", error.message);
+        throw new Error(
+          error.response?.data?.message || "Failed to add the item to the cart."
+          );
+        }
+      }
+
 
       //______________PaymentHistory.jsx
 
@@ -405,6 +421,8 @@ const ApiComponent = () => {
     getPaymentHistory,
 
     adminStats,
+
+    postReview,
   };
 };
 

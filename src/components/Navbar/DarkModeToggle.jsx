@@ -12,7 +12,7 @@ const DarkModeToggle = () => {
   // console.log(darkMode);
 
   return (
-    <div>
+    <div className='mt-2'>
       <button onClick={() => setDarkMode(!darkMode)}>
         {darkMode ? <FiSun className={`text-white  text-2xl`} /> : <FaRegMoon className={`text-black text-xl`} />}
       </button>

@@ -34,7 +34,7 @@ const CategorySwiper = () => {
       >
         {/* Slide 1 */}
         <SwiperSlide>
-          <Link to="/category/1" className="relative block  ">
+          <Link to="/order/Salad" className="relative block  ">
             <img src={slide1} alt="Category 1" className="w-full" />
             <div className="absolute bottom-0 left-0 right-0 inset-0 flex justify-center items-end bg-black bg-opacity-20 text-white text-center  p-4 opacity-0 hover:opacity-100 transition-opacity duration-300 ">
               <p className='text-xl text-[#FFFFFF] new_heading_font'>SALADS</p>
@@ -44,7 +44,7 @@ const CategorySwiper = () => {
 
         {/* Slide 2 */}
         <SwiperSlide>
-          <Link to="/category/2" className="relative block  ">
+          <Link to="/order/Pizza" className="relative block  ">
             <img src={slide2} alt="Category 2" className="w-full" />
             <div className="absolute bottom-0 left-0 right-0 inset-0 flex justify-center items-end bg-black bg-opacity-20 text-white text-center p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
               <p className='text-xl text-[#FFFFFF] new_heading_font'>PIZZAS</p>
@@ -55,7 +55,7 @@ const CategorySwiper = () => {
 
         {/* Slide 3 */}
         <SwiperSlide>
-          <Link to="/category/3" className="relative block  ">
+          <Link to="/order/Soups" className="relative block  ">
             <img src={slide3} alt="Category 3" className="w-full" />
             <div className="absolute bottom-0 left-0 right-0 inset-0 flex justify-center items-end bg-black bg-opacity-20 text-white text-center p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
               <p className='text-xl text-[#FFFFFF] new_heading_font'>SOUPS</p>
@@ -65,7 +65,7 @@ const CategorySwiper = () => {
 
         {/* Slide 4 */}
         <SwiperSlide>
-          <Link to="/category/4" className="relative block  ">
+          <Link to="/order/Popular" className="relative block  ">
             <img src={slide4} alt="Category 4" className="w-full" />
             <div className="absolute bottom-0 left-0 right-0 inset-0 flex justify-center items-end bg-black bg-opacity-20 text-white text-center p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
               <p className='text-xl text-[#FFFFFF] new_heading_font'>CAKES</p>
@@ -75,7 +75,7 @@ const CategorySwiper = () => {
 
         {/* Slide 5 */}
         <SwiperSlide>
-          <Link to="/category/5" className="relative block  ">
+          <Link to="/order/Desserts" className="relative block  ">
             <img src={slide5} alt="Category 5" className="w-full" />
             <div className="absolute bottom-0 left-0 inset-0 flex justify-center items-end right-0  bg-black bg-opacity-20 text-white text-center p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
               <p className='text-xl text-[#FFFFFF] new_heading_font'>DESSERTS</p>
