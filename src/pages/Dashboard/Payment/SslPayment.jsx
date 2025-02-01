@@ -36,7 +36,7 @@ const SslPayment = () => {
 
 
     try {
-      const response = await axios.post('http://localhost:5000/create-ssl-payment', paymentData);
+      const response = await axios.post('https://cafebarisalserverside.vercel.app/create-ssl-payment', paymentData);
 
         console.log(response.data);
        const redirectURL = response.data?.redirectUrl;
